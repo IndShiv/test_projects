@@ -145,7 +145,9 @@ export const OverfittingIntro: React.FC<OverfittingIntroProps> = ({ position, sh
   const s0 = f(beats.struggles);
   const drop = spring({ frame: frame - s0, fps, config: { damping: 10, stiffness: 120 } });
   const miss = interpolate(frame, [s0 + 14, s0 + 30], [0, 1], { ...clamp, easing: ease });
-  const shake = interpolate(frame, [s0 + 28, s0 + 46], [1, 0], clamp) * Math.sin((frame - s0) * 1.9) * 7;
+  // Brief shudder when the miss lands; zero before and after
+  const shake =
+    interpolate(frame, [s0 + 28, s0 + 30, s0 + 46], [0, 1, 0], clamp) * Math.sin((frame - s0) * 1.9) * 7;
   const xMark = spring({ frame: frame - (s0 + 28), fps, config: { damping: 9 } });
   const curveY = Math.min(PLOT_H, Math.max(0, sy(models.overfit(missPoint.x))));
   const pointY = sy(missPoint.y);
