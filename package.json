@@ -11,6 +11,9 @@
     "render:intro": "remotion render OverfittingIntro out/overfitting-intro.mov --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png",
     "render:intro:webm": "remotion render OverfittingIntro out/overfitting-intro.webm --codec=vp9 --pixel-format=yuva420p --image-format=png",
     "render:intro:preview": "remotion render OverfittingIntroPreview out/overfitting-intro-preview.mp4",
+    "render:focus": "remotion render OverfittingFocus out/overfitting-focus.mov --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png",
+    "render:focus:webm": "remotion render OverfittingFocus out/overfitting-focus.webm --codec=vp9 --pixel-format=yuva420p --image-format=png",
+    "render:focus:preview": "remotion render OverfittingFocusPreview out/overfitting-focus-preview.mp4",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

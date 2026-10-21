@@ -11,6 +11,27 @@ npm run studio   # live preview + timeline scrubbing in the browser
 
 ## Graphics
 
+### Overfitting focus (`src/overfitting-focus/`)
+
+The overfitting section of the original explainer, on its own and timed to the same spoken line
+as the intro below. It uses the original card, title, captions and chart.
+
+| Beat (default)   | You say                                               | On screen                                                       |
+| ---------------- | ----------------------------------------------------- | --------------------------------------------------------------- |
+| `concept` 0.2s   | "Here's another interesting concept…"                 | Card appears, axes draw, training dots pop in                   |
+| `title` 1.9s     | "…overfitting."                                       | **Overfitting** title + OVERFIT pill                            |
+| `learns` 3.2s    | "It's when a model learns its training data so well…" | Curve snakes through every dot; training error 0.00             |
+| `struggles` 6.4s | "…that it struggles with anything unfamiliar."        | New data appears, error lines to the curve, test error bar grows |
+| `out` 10.2s      | (end of line)                                         | Card fades out                                                  |
+
+Edit `beats` in the Studio props panel to match your recording.
+
+```bash
+npm run render:focus          # out/overfitting-focus.mov  – ProRes 4444 with alpha
+npm run render:focus:webm     # out/overfitting-focus.webm – VP9 with alpha
+npm run render:focus:preview  # out/overfitting-focus-preview.mp4
+```
+
 ### Overfitting intro (`src/overfitting-intro/`)
 
 An ~11-second overlay timed to the line:

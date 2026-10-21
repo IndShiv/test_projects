@@ -2,6 +2,11 @@ import React from "react";
 import { Composition } from "remotion";
 import { Overfitting, OVERFITTING_DURATION, OverfittingProps } from "./overfitting/Overfitting";
 import {
+  calculateFocusMetadata,
+  OverfittingFocus,
+  overfittingFocusDefaults,
+} from "./overfitting-focus/OverfittingFocus";
+import {
   calculateIntroMetadata,
   OverfittingIntro,
   overfittingIntroDefaults,
@@ -10,6 +15,25 @@ import {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* The original explainer's overfitting section, timed to the spoken line */}
+      <Composition
+        id="OverfittingFocus"
+        component={OverfittingFocus}
+        calculateMetadata={calculateFocusMetadata}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={overfittingFocusDefaults}
+      />
+      <Composition
+        id="OverfittingFocusPreview"
+        component={OverfittingFocus}
+        calculateMetadata={calculateFocusMetadata}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ ...overfittingFocusDefaults, showBackground: true }}
+      />
       {/* Short overlay timed to: "Here's another interesting concept, overfitting. ..." */}
       <Composition
         id="OverfittingIntro"

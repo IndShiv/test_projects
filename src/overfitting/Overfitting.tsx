@@ -28,13 +28,13 @@ export type OverfittingProps = {
   showBackground: boolean;
 };
 
-// Card + plot geometry
-const CARD_W = 1040;
-const CARD_H = 900;
-const PAD = 52;
-const PLOT_W = CARD_W - PAD * 2;
-const PLOT_H = 480;
-const PLOT_TOP = 200;
+// Card + plot geometry (shared with OverfittingFocus)
+export const CARD_W = 1040;
+export const CARD_H = 900;
+export const PAD = 52;
+export const PLOT_W = CARD_W - PAD * 2;
+export const PLOT_H = 480;
+export const PLOT_TOP = 200;
 
 // Timeline (frames at 30 fps)
 const T = {
@@ -54,20 +54,20 @@ const T = {
 };
 export const OVERFITTING_DURATION = T.end;
 
-const ease = Easing.inOut(Easing.cubic);
-const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-const progress = (frame: number, start: number, length: number) =>
+export const ease = Easing.inOut(Easing.cubic);
+export const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+export const progress = (frame: number, start: number, length: number) =>
   interpolate(frame, [start, start + length], [0, 1], { ...clamp, easing: ease });
 
 // Data-space -> plot-space
 const Y_RANGE = 1.6;
-const sx = (x: number) => x * PLOT_W;
-const sy = (y: number) => PLOT_H / 2 - (y / Y_RANGE) * (PLOT_H / 2);
+export const sx = (x: number) => x * PLOT_W;
+export const sy = (y: number) => PLOT_H / 2 - (y / Y_RANGE) * (PLOT_H / 2);
 
-const pathFrom = (pts: [number, number][]) =>
+export const pathFrom = (pts: [number, number][]) =>
   pts.map(([x, y], i) => `${i === 0 ? "M" : "L"}${x.toFixed(2)},${y.toFixed(2)}`).join(" ");
 
-const Caption: React.FC<{ frame: number; from: number; to: number; children: React.ReactNode }> = ({
+export const Caption: React.FC<{ frame: number; from: number; to: number; children: React.ReactNode }> = ({
   frame,
   from,
   to,
@@ -94,7 +94,7 @@ const Caption: React.FC<{ frame: number; from: number; to: number; children: Rea
   );
 };
 
-const Pill: React.FC<{ frame: number; from: number; to: number; color: string; label: string }> = ({
+export const Pill: React.FC<{ frame: number; from: number; to: number; color: string; label: string }> = ({
   frame,
   from,
   to,
@@ -129,7 +129,7 @@ const Pill: React.FC<{ frame: number; from: number; to: number; color: string; l
   );
 };
 
-const Axes: React.FC<{ frame: number; start: number; xLabel?: string; yLabel?: string }> = ({
+export const Axes: React.FC<{ frame: number; start: number; xLabel?: string; yLabel?: string }> = ({
   frame,
   start,
   xLabel,
@@ -181,7 +181,7 @@ const Axes: React.FC<{ frame: number; start: number; xLabel?: string; yLabel?: s
   );
 };
 
-const Dot: React.FC<{ p: Point; frame: number; start: number; hollow?: boolean; color: string }> = ({
+export const Dot: React.FC<{ p: Point; frame: number; start: number; hollow?: boolean; color: string }> = ({
   p,
   frame,
   start,
