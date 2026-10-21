@@ -8,6 +8,9 @@
     "render:overfitting": "remotion render Overfitting out/overfitting.mov --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png",
     "render:overfitting:webm": "remotion render Overfitting out/overfitting.webm --codec=vp9 --pixel-format=yuva420p --image-format=png",
     "render:overfitting:preview": "remotion render OverfittingPreview out/overfitting-preview.mp4",
+    "render:intro": "remotion render OverfittingIntro out/overfitting-intro.mov --codec=prores --prores-profile=4444 --pixel-format=yuva444p10le --image-format=png",
+    "render:intro:webm": "remotion render OverfittingIntro out/overfitting-intro.webm --codec=vp9 --pixel-format=yuva420p --image-format=png",
+    "render:intro:preview": "remotion render OverfittingIntroPreview out/overfitting-intro-preview.mp4",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
