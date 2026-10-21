@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition } from "remotion";
 import { Overfitting, OVERFITTING_DURATION, OverfittingProps } from "./overfitting/Overfitting";
+import { calculateIterationMetadata, Iteration, iterationDefaults } from "./iteration/Iteration";
 import {
   calculateFocusMetadata,
   OverfittingFocus,
@@ -15,6 +16,25 @@ import {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* "When we train an AI model and it makes a mistake..." */}
+      <Composition
+        id="Iteration"
+        component={Iteration}
+        calculateMetadata={calculateIterationMetadata}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={iterationDefaults}
+      />
+      <Composition
+        id="IterationPreview"
+        component={Iteration}
+        calculateMetadata={calculateIterationMetadata}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{ ...iterationDefaults, showBackground: true }}
+      />
       {/* The original explainer's overfitting section, timed to the spoken line */}
       <Composition
         id="OverfittingFocus"

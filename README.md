@@ -11,6 +11,33 @@ npm run studio   # live preview + timeline scrubbing in the browser
 
 ## Graphics
 
+### Iteration (`src/iteration/`)
+
+A ~23-second overlay in the same style, timed to:
+
+> "When we train an AI model and it makes a mistake, we don't immediately throw it away. We look at
+> what went wrong. We adjust. We try again. We call that iteration. And yet, when we make mistakes
+> in our own lives, we sometimes treat them as evidence that we're not good enough."
+
+| Beat (default)        | You say                                    | On screen                                                       |
+| --------------------- | ------------------------------------------ | --------------------------------------------------------------- |
+| `mistake` 0.2s        | "When we train an AI model…"               | "Training a model": dots, a curve that gets it backwards, MISTAKE |
+| `notThrownAway` 3.4s  | "we don't immediately throw it away."      | Crossed-out bin                                                 |
+| `look` 6.0s           | "We look at what went wrong."              | Error lines, Look → Adjust → Try again chips, error bar         |
+| `adjust` 8.2s         | "We adjust."                               | Curve moves closer to the data                                  |
+| `tryAgain` 9.4s       | "We try again."                            | Attempt counter; the loop runs, error shrinks, curve turns green |
+| `iteration` 11.4s     | "We call that iteration."                  | Title becomes **Iteration**, all steps light up                 |
+| `ourLives` 14.0s      | "And yet, when we make mistakes…"          | AI model: Mistake → Iterate; Us: Mistake…                       |
+| `evidence` 17.4s      | "we sometimes treat them as evidence"      | Caption                                                         |
+| `notGoodEnough` 19.4s | "that we're not good enough."              | …→ Not good enough                                              |
+| `out` 22.4s           | (end)                                      | Card fades out                                                  |
+
+```bash
+npm run render:iteration          # out/iteration.mov  – ProRes 4444 with alpha (DaVinci Resolve)
+npm run render:iteration:webm     # out/iteration.webm – VP9 with alpha
+npm run render:iteration:preview  # out/iteration-preview.mp4
+```
+
 ### Overfitting focus (`src/overfitting-focus/`)
 
 The overfitting section of the original explainer, on its own and timed to the same spoken line
